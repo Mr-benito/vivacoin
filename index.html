@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="fr">
 <head>
@@ -101,66 +100,4 @@
 <div id="confirmModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-symbol" id="modalSymbol">↗</div><h2 id="modalTitle">Confirmer l’opération</h2><p id="modalText"></p><div class="modal-actions"><button class="secondary-btn" id="modalCancel">Annuler</button><button class="primary-btn" id="modalConfirm">Continuer avec MetaMask</button></div></div></div>
 <script src="app.js"></script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VivaCoin (VCN) DApp - 2026</title>
-    <!-- Google Fonts Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Fichier CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Bibliothèque Ethers.js -->
-    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1> VivaCoin (VCN) DApp</h1>
-            <button id="connectBtn" onclick="connecterMetaMask()">Connecter MetaMask</button>
-        </header>
-
-        <!-- Informations du Compte -->
-        <div class="card">
-            <h2>Informations du Compte</h2>
-            <p><strong>Adresse :</strong> <span id="userAddress">Non connecté</span></p>
-            <p><strong>Solde VivaCoin :</strong> <span id="userBalance">0</span> VCN</p>
-        </div>
-
-        <!-- Section Achat de Tokens -->
-        <div class="card">
-            <h2>Acheter des VivaCoins (VCN)</h2>
-            <div class="form-group">
-                <input type="number" id="ethAmount" placeholder="Montant en ETH (ex: 0.01)" step="0.001">
-                <button onclick="acheterTokens()">Acheter VCN</button>
-            </div>
-        </div>
-
-        <!-- Section Vente de Tokens (Swap inverse) -->
-        <div class="card">
-            <h2>Revendre des VivaCoins (VCN)</h2>
-            <div class="form-group">
-                <input type="number" id="vcnAmount" placeholder="Nombre de VCN à revendre">
-                <button onclick="vendreTokens()" style="border-color: #ff4d4d; color: #ff4d4d;">Revendre VCN</button>
-            </div>
-        </div>
-
-        <!-- Boutique de Produits -->
-        <div class="card">
-            <h2>Boutique de Produits</h2>
-            <div id="productList" class="products-grid">
-                <p>Connectez votre portefeuille pour afficher les produits.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script principal -->
-    <script src="app.js"></script>
-</body>
->>>>>>> 1508c12b356fd71fdf42afec51b12ef0a211355e
 </html>
