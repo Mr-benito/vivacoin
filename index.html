@@ -1,3 +1,107 @@
+<<<<<<< HEAD
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101b2d">
+<title>VivaCoin — Portefeuille & boutique</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-page="dashboard" aria-label="VivaCoin accueil"><span class="brandmark">V</span><span><b>VivaCoin</b><small>WEB3 WALLET</small></span></a>
+    <div class="nav-label">ESPACE PERSONNEL</div>
+    <nav class="nav">
+      <button class="nav-item active" data-page="dashboard"><span>▦</span>Vue d’ensemble</button>
+      <button class="nav-item" data-page="wallet"><span>◈</span>Mon portefeuille</button>
+      <button class="nav-item" data-page="exchange"><span>⇄</span>Acheter / revendre</button>
+      <button class="nav-item" data-page="shop"><span>▣</span>Boutique VCN</button>
+      <button class="nav-item" data-page="activity"><span>↻</span>Activité</button>
+    </nav>
+    <div class="nav-label">APPLICATION</div>
+    <nav class="nav">
+      <button class="nav-item" data-page="security"><span>♧</span>Sécurité & réseau</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="network-card"><span class="status-dot"></span><div><b id="networkStatus">Réseau non vérifié</b><small id="networkDetail">Connectez MetaMask</small></div></div>
+      <p>VivaCoin · Interface décentralisée</p>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="top-left"><button class="mobile-menu" id="menuBtn" aria-label="Ouvrir le menu">☰</button><div><div class="breadcrumbs">VivaCoin <span>/</span> <b id="pageCrumb">Vue d’ensemble</b></div><div class="top-sub">Gérez vos VCN en toute simplicité.</div></div></div>
+      <div class="top-actions"><button class="icon-btn" id="themeBtn" title="Changer le thème">◐</button><button class="connect-btn" id="connectBtn">◈ <span>Connecter MetaMask</span></button></div>
+    </header>
+
+    <div class="content">
+      <section class="page active" id="page-dashboard">
+        <div class="page-heading"><div><div class="eyebrow">VOTRE ESPACE VIVACOIN</div><h1>Votre portefeuille, en un regard.</h1><p>Retrouvez vos VCN, échangez des tokens et découvrez la boutique.</p></div><div class="heading-tags"><span class="tag tag-green">● Contrat configuré</span><span class="tag" id="walletTag">Wallet déconnecté</span></div></div>
+        <div class="dashboard-grid">
+          <article class="hero-card">
+            <div class="hero-top"><div><div class="hero-label">SOLDE VIVACOIN</div><div class="hero-value"><span id="heroBalance">—</span> <small>VCN</small></div></div><span class="token-circle">V</span></div>
+            <div class="wallet-address" id="heroAddress">Connectez votre portefeuille pour consulter votre solde.</div>
+            <div class="hero-actions"><button class="btn-light" data-goto="exchange">Acheter / revendre <span>↗</span></button><button class="btn-outline" data-goto="wallet">Voir le portefeuille →</button></div>
+            <div class="hero-orb"></div>
+          </article>
+          <article class="card balance-card"><div class="card-title"><span>APERÇU DU CONTRAT</span><span class="live-dot">●</span></div><div class="contract-name">VivaCoin <span class="symbol-pill">VCN</span></div><p>Token ERC-20 · Ethereum Virtual Machine</p><div class="mini-divider"></div><div class="meta-row"><span>Adresse du contrat</span><button class="text-button" id="copyContract">Copier ↗</button></div><div class="contract-address" id="contractShort">0xdfB3…471dEE6</div><div class="meta-row"><span>Décimales</span><b>18</b></div><div class="meta-row"><span>Taux d’achat défini au contrat</span><b>1 ETH = 1 000 VCN*</b></div><p class="tiny-note">*À confirmer sur le réseau déployé. Les conditions du contrat font foi.</p></article>
+          <article class="metric-card"><div class="metric-icon mint">⇄</div><div><span>Fonctions d’échange</span><b>Achat & revente</b><small>Transactions signées par votre wallet</small></div></article>
+          <article class="metric-card"><div class="metric-icon violet">▣</div><div><span>Produits en boutique</span><b id="productCount">—</b><small>Chargés depuis le contrat</small></div></article>
+          <article class="metric-card"><div class="metric-icon blue">◈</div><div><span>Connexion</span><b id="connectionMetric">Non connecté</b><small id="connectionSub">MetaMask requis</small></div></article>
+          <article class="card activity-card"><div class="section-head"><div><h2>Dernières opérations</h2><p>Transactions effectuées depuis cette session</p></div><button class="subtle-btn" data-goto="activity">Tout afficher →</button></div><div id="recentActivity" class="empty-state"><span class="empty-icon">↻</span><b>Aucune opération dans cette session</b><p>Vos actions apparaîtront ici après leur confirmation.</p></div></article>
+          <article class="card shortcuts-card"><div class="section-head"><div><h2>Accès rapide</h2><p>Que souhaitez-vous faire ?</p></div></div><div class="shortcut-grid"><button data-goto="exchange"><span class="shortcut-icon">＋</span><b>Acheter des VCN</b><small>Avec de l’ETH</small></button><button data-goto="exchange"><span class="shortcut-icon">↘</span><b>Revendre des VCN</b><small>Recevoir de l’ETH*</small></button><button data-goto="shop"><span class="shortcut-icon">▣</span><b>Parcourir la boutique</b><small>Utiliser vos tokens</small></button><button data-goto="wallet"><span class="shortcut-icon">◈</span><b>Voir mon solde</b><small>État du portefeuille</small></button></div><p class="tiny-note">*La revente dépend de la réserve ETH du contrat.</p></article>
+        </div>
+        <div class="disclaimer"><span>ⓘ</span><div><b>Restez vigilant</b><p>Vérifiez toujours le réseau, l’adresse du destinataire et les frais affichés dans MetaMask avant de signer une transaction.</p></div></div>
+      </section>
+
+      <section class="page" id="page-wallet">
+        <div class="page-heading"><div><div class="eyebrow">ACTIFS NUMÉRIQUES</div><h1>Mon portefeuille</h1><p>Votre solde VCN provient directement du contrat intelligent.</p></div><span class="tag" id="walletPageStatus">Wallet déconnecté</span></div>
+        <div class="two-col">
+          <article class="card wallet-large"><div class="token-circle large">V</div><div class="muted-label">SOLDE DISPONIBLE</div><div class="big-balance"><span id="walletBalance">—</span> <small>VCN</small></div><div class="full-address" id="fullAddress">Adresse du wallet non disponible</div><div class="inline-actions"><button class="primary-btn" data-goto="exchange">Acheter / revendre</button><button class="secondary-btn" id="copyWallet">Copier l’adresse</button></div></article>
+          <article class="card"><div class="section-head"><div><h2>Informations du token</h2><p>Données configurées dans l’application</p></div></div><div class="info-list"><div><span>Nom</span><b>VivaCoin</b></div><div><span>Symbole</span><b>VCN</b></div><div><span>Décimales</span><b>18</b></div><div><span>Standard</span><b>ERC-20</b></div><div><span>Contrat</span><button class="text-button" id="copyContract2">Copier l’adresse</button></div></div><p class="hint">Le solde est lu avec <code>balanceOf</code>. Aucun solde fictif n’est présenté comme réel.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-exchange">
+        <div class="page-heading"><div><div class="eyebrow">ACHAT & REVENTE</div><h1>Échangez vos VivaCoin.</h1><p>Choisissez une opération. MetaMask vous demandera de confirmer chaque transaction.</p></div><span class="tag tag-green">Contrat VCN</span></div>
+        <div class="exchange-grid">
+          <article class="card exchange-card"><div class="exchange-head"><span class="exchange-icon">＋</span><div><h2>Acheter des VCN</h2><p>Échangez de l’ETH contre des VivaCoin.</p></div></div><form id="buyForm"><label for="ethAmount">Montant en ETH</label><div class="amount-field"><input id="ethAmount" type="number" min="0" step="any" placeholder="0.05" required><span>ETH</span></div><div class="estimate"><span>Estimation indicative</span><b id="buyEstimate">≈ 50 VCN*</b></div><div class="helper-box">Le contrat définit un taux de 1 ETH = 1 000 unités de tokens selon son implémentation. Le résultat réel doit être confirmé après lecture du contrat.</div><button class="primary-btn full" type="submit">Acheter des VCN <span>↗</span></button></form></article>
+          <article class="card exchange-card"><div class="exchange-head"><span class="exchange-icon sell">↘</span><div><h2>Revendre des VCN</h2><p>Revendez vos VCN et recevez de l’ETH si la réserve du contrat le permet.</p></div></div><form id="sellForm"><label for="vcnAmount">Montant en VCN</label><div class="amount-field"><input id="vcnAmount" type="number" min="0" step="any" placeholder="100" required><span>VCN</span></div><div class="estimate"><span>Estimation selon le taux du contrat</span><b id="sellEstimate">≈ 0,1 ETH*</b></div><div class="helper-box warning">Le remboursement dépend de la réserve ETH du contrat. Testez d’abord avec un petit montant sur un réseau de test. Des frais de gas s’appliquent.</div><button class="primary-btn full" type="submit">Revendre des VCN <span>↘</span></button></form></article>
+        </div>
+        <p class="footnote">*Estimations indicatives calculées à partir du taux annoncé dans le contrat. Elles ne remplacent pas une simulation on-chain. Chaque opération est soumise aux règles et à la réserve du contrat.</p>
+      </section>
+
+      <section class="page" id="page-shop">
+        <div class="page-heading"><div><div class="eyebrow">UTILITÉ DE VIVACOIN</div><h1>La boutique VivaCoin.</h1><p>Découvrez les produits enregistrés dans votre contrat intelligent.</p></div><button class="secondary-btn" id="reloadProducts">↻ Actualiser</button></div>
+        <div class="shop-banner"><div><span class="eyebrow">VIVA SHOP</span><h2>Vos tokens, votre boutique.</h2><p>Les prix et produits sont chargés depuis le contrat connecté.</p></div><div class="shop-symbol">V</div></div>
+        <div id="productList" class="products-grid"><div class="loading-card">Connectez MetaMask pour charger les produits on-chain.</div></div>
+      </section>
+
+      <section class="page" id="page-activity">
+        <div class="page-heading"><div><div class="eyebrow">JOURNAL D’ACTIVITÉ</div><h1>Vos opérations.</h1><p>Historique local des actions effectuées dans cette session.</p></div><button class="secondary-btn" id="clearActivity">Effacer l’historique local</button></div>
+        <article class="card"><div class="section-head"><div><h2>Activité récente</h2><p>Les confirmations sont attendues depuis le réseau.</p></div><span class="tag" id="activityCount">0 opération</span></div><div id="activityList" class="empty-state"><span class="empty-icon">↻</span><b>Rien à afficher pour le moment</b><p>Les opérations confirmées apparaîtront ici.</p></div></article>
+        <p class="footnote">Cet historique est stocké uniquement dans la page ouverte. Pour un historique complet et persistant, il faudra lire les événements du contrat ou utiliser un explorateur blockchain.</p>
+      </section>
+
+      <section class="page" id="page-security">
+        <div class="page-heading"><div><div class="eyebrow">CONFIGURATION & SÉCURITÉ</div><h1>Réseau et sécurité.</h1><p>Vérifiez les informations avant d’utiliser VivaCoin.</p></div></div>
+        <div class="two-col">
+          <article class="card"><div class="section-head"><div><h2>Contrat intelligent</h2><p>Adresse renseignée dans app.js</p></div><span class="status-pill">Configuré</span></div><div class="contract-box" id="securityContract">0xdfB35aAc60cae37c7312fc3b2B99DE842471dEE6</div><button class="secondary-btn" id="copyContract3">Copier l’adresse</button><div class="info-list spaced"><div><span>ABI</span><b>Fonctions ERC-20 et VivaCoin</b></div><div><span>Réseau actuel</span><b id="securityNetwork">À vérifier avec MetaMask</b></div><div><span>Adresse du wallet</span><b id="securityAccount">Non connecté</b></div></div></article>
+          <article class="card"><div class="section-head"><div><h2>Bonnes pratiques</h2><p>Protégez vos actifs numériques</p></div></div><div class="security-tip"><span>✓</span><div><b>Ne partagez jamais votre phrase de récupération</b><p>L’application ne doit jamais vous demander votre phrase secrète ou clé privée.</p></div></div><div class="security-tip"><span>✓</span><div><b>Vérifiez le réseau</b><p>L’adresse du contrat peut exister sur plusieurs réseaux. Utilisez celui où le contrat a été déployé.</p></div></div><div class="security-tip"><span>✓</span><div><b>Lisez la transaction avant de signer</b><p>Contrôlez le montant, les frais et la destination dans MetaMask.</p></div></div><div class="security-tip"><span>!</span><div><b>La revente dépend de la réserve</b><p>Le contrat doit disposer d’assez d’ETH pour rembourser la vente.</p></div></div></article>
+        </div>
+      </section>
+      <footer class="footer"><span>VivaCoin <b>VCN</b></span><span>Interface communautaire · Contrat fourni par l’équipe</span></footer>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"><span class="toast-mark">i</span><div><b id="toastTitle">Information</b><p id="toastMessage"></p></div><button id="toastClose" aria-label="Fermer">×</button></div>
+<div id="confirmModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-symbol" id="modalSymbol">↗</div><h2 id="modalTitle">Confirmer l’opération</h2><p id="modalText"></p><div class="modal-actions"><button class="secondary-btn" id="modalCancel">Annuler</button><button class="primary-btn" id="modalConfirm">Continuer avec MetaMask</button></div></div></div>
+<script src="app.js"></script>
+</body>
+=======
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,4 +162,5 @@
     <!-- Script principal -->
     <script src="app.js"></script>
 </body>
+>>>>>>> 1508c12b356fd71fdf42afec51b12ef0a211355e
 </html>
